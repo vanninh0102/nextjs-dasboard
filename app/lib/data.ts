@@ -22,7 +22,7 @@ export async function fetchRevenue() {
     // Don't do this in production :)
 
     console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    // await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
@@ -45,7 +45,7 @@ export async function fetchLatestInvoices() {
       JOIN customers ON invoices.customer_id = customers.id
       ORDER BY invoices.date DESC
       LIMIT 5`;
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const latestInvoices = data.rows.map((invoice) => ({
       ...invoice,
@@ -61,7 +61,7 @@ export async function fetchLatestInvoices() {
 export async function fetchCardData() {
   noStore();
   try {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
 
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
